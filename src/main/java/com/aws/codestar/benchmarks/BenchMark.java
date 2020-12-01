@@ -23,8 +23,9 @@ public class BenchMark {
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.All)
+    @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(0)
     public void rotateAndResizeImage(Blackhole bm) {
         try {
             // reads in the image
@@ -47,7 +48,6 @@ public class BenchMark {
     public void main() throws Exception {
         Options opt = new OptionsBuilder()
                 .include(BenchMark.class.getSimpleName())
-                .forks(1)
                 .result("imageRotationBenchmarkResult.json")
                 .build();
         new Runner(opt).run();
