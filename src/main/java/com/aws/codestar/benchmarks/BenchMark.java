@@ -48,7 +48,6 @@ public class BenchMark {
     public void main() throws Exception {
         Options opt = new OptionsBuilder()
                 .include(BenchMark.class.getSimpleName())
-                .result("imageRotationBenchmarkResult.json")
                 .build();
         new Runner(opt).run();
 
